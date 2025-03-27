@@ -41,58 +41,68 @@ Modern Firebase applications often need to coordinate multiple asynchronous task
 
 Below is an example of five tasks (A–E) defined as Firebase Cloud Functions. In these examples, the task logic is defined inline within the Firebase trigger using an anonymous function passed to `wrapTaskWithOrchestration`.
 
-````js
+```js
 // See example.js in this repository.
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 admin.initializeApp();
 
-const { wrapTaskWithOrchestration } = require('firestore-promise');
+const { wrapTaskWithOrchestration } = require("firestore-promise");
 
-exports.taskA = functions.firestore.document('tasks/taskA')
-  .onCreate(wrapTaskWithOrchestration(
+exports.taskA = functions.firestore.document("tasks/taskA").onCreate(
+  wrapTaskWithOrchestration(
     async (snap, context, dependencyOutputs) => {
       console.log("Executing TaskA...");
-      return `${dependencyOutputs.join(' ')}TaskA completed`;
+      return `${dependencyOutputs.join(" ")}TaskA completed`;
     },
-    [], ['taskB', 'taskC']
-  ));
+    [],
+    ["taskB", "taskC"],
+  ),
+);
 
-exports.taskB = functions.firestore.document('tasks/taskB')
-  .onCreate(wrapTaskWithOrchestration(
+exports.taskB = functions.firestore.document("tasks/taskB").onCreate(
+  wrapTaskWithOrchestration(
     async (snap, context, dependencyOutputs) => {
       console.log("Executing TaskB...");
-      return `${dependencyOutputs.join(' ')} TaskB completed`;
+      return `${dependencyOutputs.join(" ")} TaskB completed`;
     },
-    ['taskA'], ['taskD']
-  ));
+    ["taskA"],
+    ["taskD"],
+  ),
+);
 
-exports.taskC = functions.firestore.document('tasks/taskC')
-  .onCreate(wrapTaskWithOrchestration(
+exports.taskC = functions.firestore.document("tasks/taskC").onCreate(
+  wrapTaskWithOrchestration(
     async (snap, context, dependencyOutputs) => {
       console.log("Executing TaskC...");
-      return `${dependencyOutputs.join(' ')} TaskC completed`;
+      return `${dependencyOutputs.join(" ")} TaskC completed`;
     },
-    ['taskA'], ['taskE']
-  ));
+    ["taskA"],
+    ["taskE"],
+  ),
+);
 
-exports.taskD = functions.firestore.document('tasks/taskD')
-  .onCreate(wrapTaskWithOrchestration(
+exports.taskD = functions.firestore.document("tasks/taskD").onCreate(
+  wrapTaskWithOrchestration(
     async (snap, context, dependencyOutputs) => {
       console.log("Executing TaskD...");
-      return `${dependencyOutputs.join(' ')} TaskD completed`;
+      return `${dependencyOutputs.join(" ")} TaskD completed`;
     },
-    ['taskB'], ['taskE']
-  ));
+    ["taskB"],
+    ["taskE"],
+  ),
+);
 
-exports.taskE = functions.firestore.document('tasks/taskE')
-  .onCreate(wrapTaskWithOrchestration(
+exports.taskE = functions.firestore.document("tasks/taskE").onCreate(
+  wrapTaskWithOrchestration(
     async (snap, context, dependencyOutputs) => {
       console.log("Executing TaskE...");
-      return `${dependencyOutputs.join(' ')} TaskE completed`;
+      return `${dependencyOutputs.join(" ")} TaskE completed`;
     },
-    ['taskC', 'taskD'], []
-  ));
+    ["taskC", "taskD"],
+    [],
+  ),
+);
 ```
 
 ## Firestore Security Rules
@@ -126,5 +136,7 @@ npm install firestore-promise
 ```
 
 Then, import it into your Firebase Cloud Functions project as shown in the example.
-````
 
+```
+
+```
