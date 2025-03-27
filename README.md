@@ -93,6 +93,7 @@ exports.taskE = functions.firestore.document('tasks/taskE')
     },
     ['taskC', 'taskD'], []
   ));
+```
 
 ## Firestore Security Rules
 
@@ -112,7 +113,7 @@ service cloud.firestore {
     }
   }
 }
-````
+```
 
 Adjust these rules according to your app’s authentication and data access requirements.
 
@@ -125,3 +126,5 @@ npm install firestore-promise
 ```
 
 Then, import it into your Firebase Cloud Functions project as shown in the example.
+````
+
