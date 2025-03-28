@@ -1,17 +1,17 @@
 {
-  "name": "firestore-promise",
+  "name": "firebase-promise",
   "version": "0.1.1",
-  "description": "A Firestore-based asynchronous orchestration library using promise-like patterns with atomic batched writes.",
+  "description": "A firebase-based asynchronous orchestration library using promise-like patterns with atomic batched writes.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kirilligum/firestore-promise.git"
+    "url": "git+https://github.com/kirilligum/firebase-promise.git"
   },
   "keywords": [
-    "firestore",
+    "firebase",
     "orchestration",
     "promise",
     "async",
@@ -23,12 +23,12 @@
   "author": "Kirill Igumenshchev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kirilligum/firestore-promise/issues"
+    "url": "https://github.com/kirilligum/firebase-promise/issues"
   },
-  "homepage": "https://github.com/kirilligum/firestore-promise#readme",
+  "homepage": "https://github.com/kirilligum/firebase-promise#readme",
   "dependencies": {
     "firebase-admin": "^11.0.0",
     "firebase-functions": "^4.0.0",
-    "firestore-promise": "file:firestore-promise-0.1.0.tgz"
+    "firebase-promise": "file:firebase-promise-0.1.0.tgz"
   }
 }
