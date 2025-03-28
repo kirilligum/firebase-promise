@@ -39,7 +39,18 @@ Modern Firebase applications often need to coordinate multiple asynchronous task
 
 ## Example Usage
 
-Below is an example of five tasks (A–E) defined as Firebase Cloud Functions. In these examples, the task logic is defined inline within the Firebase trigger using an anonymous function passed to `wrapTaskWithOrchestration`.
+The example below demonstrates five tasks (A–E) with the following dependency structure:
+
+```mermaid
+graph TD
+    A[Task A] --> B[Task B]
+    A --> C[Task C]
+    B --> D[Task D]
+    C --> E[Task E]
+    D --> E
+```
+
+Each task is defined as a Firebase Cloud Function. In these examples, the task logic is defined inline within the Firebase trigger using an anonymous function passed to `wrapTaskWithOrchestration`.
 
 ```js
 // See example.js in this repository.
