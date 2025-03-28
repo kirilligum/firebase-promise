@@ -1,6 +1,6 @@
 {
   "name": "firestore-promise",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Firestore-based asynchronous orchestration library using promise-like patterns with atomic batched writes.",
   "main": "index.js",
   "scripts": {
